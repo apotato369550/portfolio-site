@@ -1,12 +1,10 @@
 import './scss/Header.scss'
 import hamburger from '../assets/hamburger.png'
 import close from '../assets/close.png'
-import { Link, NavigateFunction, useNavigate, useLocation } from 'react-router-dom'
-import React, { useRef } from 'react';
+import { Link, NavigateFunction, useNavigate } from 'react-router-dom'
 
 function Header() {
     const history: NavigateFunction = useNavigate();
-    const location: any = useLocation();
 
     const handleNavigationLinkClick = (url: string) => {
         // play animation here
