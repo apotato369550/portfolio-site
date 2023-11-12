@@ -1,0 +1,148 @@
+.nav {
+    min-height: 3em;
+    width: 100%;
+
+    .nav-toggle {
+        position: absolute;
+        cursor: pointer;
+        margin: 0 1rem;
+        right: 0;
+
+        img {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+        .hamburger {
+            margin-top: 0.2rem;
+        }
+
+        .close {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+    }
+
+    .nav-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        align-items: left;
+        margin: 1rem;
+
+        li {
+            list-style: none;
+            display: none;
+        }
+
+        .logo {
+            font-size: 2.25em;
+            font-weight: 650;
+            margin-right: auto;
+            display: block;
+        }
+
+
+        a {
+            position: relative;
+            text-decoration: none;
+            font-size: 1em;
+            color: inherit;
+
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background-color: #efefef;
+                transition: width 0.25s linear;
+            }
+
+            &:hover::after {
+                width: 100%;
+            }
+        }
+
+    }
+
+    #nav-checkbox:checked {
+        ~.nav-menu li {
+            display: block;
+        }
+
+        ~.nav-toggle {
+            .close {
+                opacity: 1;
+            }
+
+            .hamburger {
+                opacity: 0;
+            }
+        }
+    }
+
+    animation-name: slideInTop;
+    animation-duration: 0.75s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0.5s;
+    animation-fill-mode: both;
+
+    
+    @keyframes slideInTop {
+        0% {
+        transform: translateY(-100%);
+        opacity: 0;
+        }
+        100% {
+        transform: translateY(0);
+        opacity: 1;
+        }
+    }
+
+    @media only screen and (min-width: 850px) {
+        overflow: hidden;
+
+        .nav-toggle {
+            display: none;
+        }
+
+        .nav-menu {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            text-align: right;
+            width: 75%;
+
+            li {
+                display: block;
+                font-size: 1em;
+            }
+
+            a::before {
+                animation: showRight 1s ease forwards;
+                animation-delay: 0.5s;
+            }
+
+
+            .logo {
+                font-size: 3em;
+                margin-right: 3em;
+                margin-left: 3rem;
+            }
+        }
+            
+        .nav-menu a::before {
+            animation: showRight 1s ease forwards;
+            animation-delay: 3s;
+        }
+    }
+}
+
+
+@keyframes showRight {
+    100% {
+        width: 0;
+    }
+}
