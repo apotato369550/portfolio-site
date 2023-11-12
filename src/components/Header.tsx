@@ -25,11 +25,11 @@ function Header() {
                     <img src={close} width="100" height="100" className="close" title="close" />
                 </label>
                 <ul className="nav-menu">
-                    <Link to="/" className="logo" onClick={(e) => { e.preventDefault(); handleNavigationLinkClick("/portfolio-site") }}>
+                    <Link to="/portfolio-site" className="logo" onClick={(e) => { e.preventDefault(); handleNavigationLinkClick("/portfolio-site") }}>
                         JAY
                     </Link>
                     <li>
-                        <Link to="/" className="nav-link" onClick={(e) => { e.preventDefault(); handleNavigationLinkClick("/portfolio-site") }}>
+                        <Link to="/portfolio-site" className="nav-link" onClick={(e) => { e.preventDefault(); handleNavigationLinkClick("/portfolio-site") }}>
                             Home
                         </Link>
                     </li>
